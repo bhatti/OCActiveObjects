@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		8F5D31720FE42AE70078D92A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31710FE42AE70078D92A /* Foundation.framework */; };
+		8F5D31730FE42AE70078D92A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31710FE42AE70078D92A /* Foundation.framework */; };
+		8F5D31740FE42AE70078D92A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31710FE42AE70078D92A /* Foundation.framework */; };
+		8F5D31760FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31750FE42B9B0078D92A /* libsqlite3.0.dylib */; };
+		8F5D31770FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31750FE42B9B0078D92A /* libsqlite3.0.dylib */; };
+		8F5D31780FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31750FE42B9B0078D92A /* libsqlite3.0.dylib */; };
+		8F5D31830FE42BF40078D92A /* ActiveObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5D317A0FE42BF40078D92A /* ActiveObject.h */; };
+		8F5D31840FE42BF40078D92A /* ActiveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317B0FE42BF40078D92A /* ActiveObject.m */; };
+		8F5D31850FE42BF40078D92A /* IntrospectHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5D317C0FE42BF40078D92A /* IntrospectHelper.h */; };
+		8F5D31860FE42BF40078D92A /* IntrospectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */; };
+		8F5D31870FE42BF40078D92A /* SqliteHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5D317E0FE42BF40078D92A /* SqliteHelper.h */; };
+		8F5D31880FE42BF40078D92A /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317F0FE42BF40078D92A /* SqliteHelper.m */; };
+		8F5D31890FE42BF40078D92A /* ActiveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317B0FE42BF40078D92A /* ActiveObject.m */; };
+		8F5D318A0FE42BF40078D92A /* IntrospectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */; };
+		8F5D318B0FE42BF40078D92A /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317F0FE42BF40078D92A /* SqliteHelper.m */; };
+		8F5D31E70FE432910078D92A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31E60FE432910078D92A /* SenTestingKit.framework */; };
+		8F5D31E80FE432910078D92A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31E60FE432910078D92A /* SenTestingKit.framework */; };
+		8F5D31E90FE432910078D92A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31E60FE432910078D92A /* SenTestingKit.framework */; };
+		8F5D327F0FE43E3E0078D92A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D327E0FE43E3E0078D92A /* Person.m */; };
+		8F5D32820FE43E820078D92A /* ActiveObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D32810FE43E820078D92A /* ActiveObjectTest.m */; };
+		8F5D32980FE44AA90078D92A /* ActiveObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D32810FE43E820078D92A /* ActiveObjectTest.m */; };
+		8F5D32990FE44AAA0078D92A /* ActiveObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D32810FE43E820078D92A /* ActiveObjectTest.m */; };
+		8F5D329B0FE44AC10078D92A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D327E0FE43E3E0078D92A /* Person.m */; };
+		8F5D329C0FE44AC20078D92A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D327E0FE43E3E0078D92A /* Person.m */; };
+		8F5D329E0FE44AD60078D92A /* ActiveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317B0FE42BF40078D92A /* ActiveObject.m */; };
+		8F5D329F0FE44ADF0078D92A /* IntrospectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */; };
+		8F5D32A00FE44AE40078D92A /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317F0FE42BF40078D92A /* SqliteHelper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F5D319F0FE42C850078D92A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F5D315D0FE428820078D92A;
+			remoteInfo = OCActiveObjectsSim;
+		};
+		8F5D31A10FE42C850078D92A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F5D31680FE428F40078D92A;
+			remoteInfo = "OCActiveObjects Tests Suite";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D6058910D05DD3D006BFB54 /* OCActiveObjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCActiveObjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* OCActiveObjects_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCActiveObjects_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* OCActiveObjects-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OCActiveObjects-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8F5D315E0FE428820078D92A /* libOCActiveObjectsSim.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCActiveObjectsSim.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F5D31690FE428F40078D92A /* OCActiveObjects Tests Suite.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OCActiveObjects Tests Suite.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F5D316A0FE428F40078D92A /* OCActiveObjects Tests Suite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCActiveObjects Tests Suite-Info.plist"; sourceTree = "<group>"; };
+		8F5D31710FE42AE70078D92A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8F5D31750FE42B9B0078D92A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		8F5D317A0FE42BF40078D92A /* ActiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveObject.h; sourceTree = "<group>"; };
+		8F5D317B0FE42BF40078D92A /* ActiveObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveObject.m; sourceTree = "<group>"; };
+		8F5D317C0FE42BF40078D92A /* IntrospectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntrospectHelper.h; sourceTree = "<group>"; };
+		8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntrospectHelper.m; sourceTree = "<group>"; };
+		8F5D317E0FE42BF40078D92A /* SqliteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteHelper.h; sourceTree = "<group>"; };
+		8F5D317F0FE42BF40078D92A /* SqliteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteHelper.m; sourceTree = "<group>"; };
+		8F5D31E60FE432910078D92A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Developer/Library/Frameworks/SenTestingKit.framework; sourceTree = SDKROOT; };
+		8F5D327D0FE43E3E0078D92A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Tests/Person.h; sourceTree = "<group>"; };
+		8F5D327E0FE43E3E0078D92A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Tests/Person.m; sourceTree = "<group>"; };
+		8F5D32800FE43E820078D92A /* ActiveObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveObjectTest.h; sourceTree = "<group>"; };
+		8F5D32810FE43E820078D92A /* ActiveObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveObjectTest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5D31720FE42AE70078D92A /* Foundation.framework in Frameworks */,
+				8F5D31760FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */,
+				8F5D31E70FE432910078D92A /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F5D315C0FE428820078D92A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5D31730FE42AE70078D92A /* Foundation.framework in Frameworks */,
+				8F5D31770FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */,
+				8F5D31E80FE432910078D92A /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F5D31660FE428F40078D92A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5D31740FE42AE70078D92A /* Foundation.framework in Frameworks */,
+				8F5D31780FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */,
+				8F5D31E90FE432910078D92A /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8F5D317A0FE42BF40078D92A /* ActiveObject.h */,
+				8F5D317B0FE42BF40078D92A /* ActiveObject.m */,
+				8F5D317C0FE42BF40078D92A /* IntrospectHelper.h */,
+				8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */,
+				8F5D317E0FE42BF40078D92A /* SqliteHelper.h */,
+				8F5D317F0FE42BF40078D92A /* SqliteHelper.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* OCActiveObjects.app */,
+				8F5D315E0FE428820078D92A /* libOCActiveObjectsSim.a */,
+				8F5D31690FE428F40078D92A /* OCActiveObjects Tests Suite.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				8F5D32770FE43CF70078D92A /* Test Cases */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				8F5D316A0FE428F40078D92A /* OCActiveObjects Tests Suite-Info.plist */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* OCActiveObjects_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* OCActiveObjects-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F5D31E60FE432910078D92A /* SenTestingKit.framework */,
+				8F5D31750FE42B9B0078D92A /* libsqlite3.0.dylib */,
+				8F5D31710FE42AE70078D92A /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F5D32770FE43CF70078D92A /* Test Cases */ = {
+			isa = PBXGroup;
+			children = (
+				8F5D327D0FE43E3E0078D92A /* Person.h */,
+				8F5D327E0FE43E3E0078D92A /* Person.m */,
+				8F5D32800FE43E820078D92A /* ActiveObjectTest.h */,
+				8F5D32810FE43E820078D92A /* ActiveObjectTest.m */,
+			);
+			name = "Test Cases";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8F5D315A0FE428820078D92A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5D31830FE42BF40078D92A /* ActiveObject.h in Headers */,
+				8F5D31850FE42BF40078D92A /* IntrospectHelper.h in Headers */,
+				8F5D31870FE42BF40078D92A /* SqliteHelper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* OCActiveObjects */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "OCActiveObjects" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F5D31A00FE42C850078D92A /* PBXTargetDependency */,
+				8F5D31A20FE42C850078D92A /* PBXTargetDependency */,
+			);
+			name = OCActiveObjects;
+			productName = OCActiveObjects;
+			productReference = 1D6058910D05DD3D006BFB54 /* OCActiveObjects.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8F5D315D0FE428820078D92A /* OCActiveObjectsSim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F5D31620FE428840078D92A /* Build configuration list for PBXNativeTarget "OCActiveObjectsSim" */;
+			buildPhases = (
+				8F5D315A0FE428820078D92A /* Headers */,
+				8F5D315B0FE428820078D92A /* Sources */,
+				8F5D315C0FE428820078D92A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCActiveObjectsSim;
+			productName = OCActiveObjectsSim;
+			productReference = 8F5D315E0FE428820078D92A /* libOCActiveObjectsSim.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8F5D31680FE428F40078D92A /* OCActiveObjects Tests Suite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F5D316D0FE428F50078D92A /* Build configuration list for PBXNativeTarget "OCActiveObjects Tests Suite" */;
+			buildPhases = (
+				8F5D31640FE428F40078D92A /* Resources */,
+				8F5D31650FE428F40078D92A /* Sources */,
+				8F5D31660FE428F40078D92A /* Frameworks */,
+				8F5D31670FE428F40078D92A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OCActiveObjects Tests Suite";
+			productName = "OCActiveObjects Tests Suite";
+			productReference = 8F5D31690FE428F40078D92A /* OCActiveObjects Tests Suite.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "OCActiveObjects" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* OCActiveObjects */,
+				8F5D315D0FE428820078D92A /* OCActiveObjectsSim */,
+				8F5D31680FE428F40078D92A /* OCActiveObjects Tests Suite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F5D31640FE428F40078D92A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8F5D31670FE428F40078D92A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				8F5D32990FE44AAA0078D92A /* ActiveObjectTest.m in Sources */,
+				8F5D329C0FE44AC20078D92A /* Person.m in Sources */,
+				8F5D329E0FE44AD60078D92A /* ActiveObject.m in Sources */,
+				8F5D329F0FE44ADF0078D92A /* IntrospectHelper.m in Sources */,
+				8F5D32A00FE44AE40078D92A /* SqliteHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F5D315B0FE428820078D92A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5D31840FE42BF40078D92A /* ActiveObject.m in Sources */,
+				8F5D31860FE42BF40078D92A /* IntrospectHelper.m in Sources */,
+				8F5D31880FE42BF40078D92A /* SqliteHelper.m in Sources */,
+				8F5D32980FE44AA90078D92A /* ActiveObjectTest.m in Sources */,
+				8F5D329B0FE44AC10078D92A /* Person.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F5D31650FE428F40078D92A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5D31890FE42BF40078D92A /* ActiveObject.m in Sources */,
+				8F5D318A0FE42BF40078D92A /* IntrospectHelper.m in Sources */,
+				8F5D318B0FE42BF40078D92A /* SqliteHelper.m in Sources */,
+				8F5D327F0FE43E3E0078D92A /* Person.m in Sources */,
+				8F5D32820FE43E820078D92A /* ActiveObjectTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F5D31A00FE42C850078D92A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F5D315D0FE428820078D92A /* OCActiveObjectsSim */;
+			targetProxy = 8F5D319F0FE42C850078D92A /* PBXContainerItemProxy */;
+		};
+		8F5D31A20FE42C850078D92A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F5D31680FE428F40078D92A /* OCActiveObjects Tests Suite */;
+			targetProxy = 8F5D31A10FE42C850078D92A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OCActiveObjects_Prefix.pch;
+				INFOPLIST_FILE = "OCActiveObjects-Info.plist";
+				PRODUCT_NAME = OCActiveObjects;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OCActiveObjects_Prefix.pch;
+				INFOPLIST_FILE = "OCActiveObjects-Info.plist";
+				PRODUCT_NAME = OCActiveObjects;
+			};
+			name = Release;
+		};
+		8F5D315F0FE428830078D92A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = OCActiveObjectsSim;
+				SDKROOT = iphonesimulator3.0;
+			};
+			name = Debug;
+		};
+		8F5D31600FE428830078D92A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = OCActiveObjectsSim;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		8F5D316B0FE428F50078D92A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "OCActiveObjects Tests Suite-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OCActiveObjects Tests Suite";
+				SDKROOT = iphonesimulator3.0;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		8F5D316C0FE428F50078D92A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "OCActiveObjects Tests Suite-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OCActiveObjects Tests Suite";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "OCActiveObjects" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F5D31620FE428840078D92A /* Build configuration list for PBXNativeTarget "OCActiveObjectsSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F5D315F0FE428830078D92A /* Debug */,
+				8F5D31600FE428830078D92A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F5D316D0FE428F50078D92A /* Build configuration list for PBXNativeTarget "OCActiveObjects Tests Suite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F5D316B0FE428F50078D92A /* Debug */,
+				8F5D316C0FE428F50078D92A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "OCActiveObjects" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
