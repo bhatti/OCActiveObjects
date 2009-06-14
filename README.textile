@@ -133,7 +133,7 @@ This class some helper methods for Sqlite3.
 In order to test it, let's define a simple Person class that extends
 ActiveObject, e.g.
 <pre>
-#import <Foundation/Foundation.h>
+#import &lt;Foundation/Foundation.h&gt;
 #import "ActiveObject.h"
 
 @interface Person : ActiveObject {
@@ -216,16 +216,17 @@ Implemention of Person.m looks like:
 
 
 - (void) dealloc {
+        [name release];
         [birthdate release];
         [super dealloc];
 }
 
 
-+ (NSString     *) getTableName {
++ (NSString *) getTableName {
         return @"persons";
 }
 
-+ (NSString     *) getDatabaseName {
++ (NSString *) getDatabaseName {
         return @"personsdb";
 }
 
@@ -249,7 +250,7 @@ Then create a new person object, e.g.
         person.sex = 'M';
         person.name = [NSString stringWithFormat:@"Joe #%d", random % 1000];
         person.income = random % 3000;
-        person.active = TRUE;
+        person.active = YES;
         person.flags = random % 30 + 0.5;
         person.rating = [NSNumber numberWithInt:20.5];  
         return person;
