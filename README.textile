@@ -278,11 +278,12 @@ When you are done, you can then close the database:
 
 
 <h2>Backlog:</h2>
-  - add better criteria support
-  - add paging support
-  - add XCode framework support to integrate easily with other applications
-  - add more tests
-  - add relational mapping
-  - add validation support
-
+<ul>
+  <li>add better criteria support
+  <li>add paging support
+  <li>add XCode framework support to integrate easily with other applications
+  <li>add more tests
+  <li>add relational mapping
+  <li>add validation support
+</ul>
 
