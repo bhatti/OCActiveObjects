@@ -258,7 +258,7 @@ Then create a new person object, e.g.
 You will then be able to save the person object as
 <pre>
         [person save];
-<pre>
+</pre>
 You can see how many rows are in the database by
 <pre>
         int count = [Person countAll];
