@@ -12,6 +12,7 @@
 int main(int argc, char *argv[]) {
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	/*
 	ActiveObjectTest *test = [[[ActiveObjectTest alloc] init] autorelease];
 	[test setup];
 	[test testSaveAndFind];
@@ -24,6 +25,7 @@ int main(int argc, char *argv[]) {
 	[test setup];
 	[test testRemove];
 	[test teardown];
+	 */
 	NSLog(@"ALL DONE");
     [pool release];
     return 0;

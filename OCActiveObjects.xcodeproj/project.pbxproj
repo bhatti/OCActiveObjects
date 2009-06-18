@@ -18,15 +18,14 @@
 		8F5D31860FE42BF40078D92A /* IntrospectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */; };
 		8F5D31870FE42BF40078D92A /* SqliteHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5D317E0FE42BF40078D92A /* SqliteHelper.h */; };
 		8F5D31880FE42BF40078D92A /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317F0FE42BF40078D92A /* SqliteHelper.m */; };
-		8F5D31E70FE432910078D92A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31E60FE432910078D92A /* SenTestingKit.framework */; };
-		8F5D31E80FE432910078D92A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31E60FE432910078D92A /* SenTestingKit.framework */; };
-		8F5D32980FE44AA90078D92A /* ActiveObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D32810FE43E820078D92A /* ActiveObjectTest.m */; };
-		8F5D32990FE44AAA0078D92A /* ActiveObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D32810FE43E820078D92A /* ActiveObjectTest.m */; };
-		8F5D329B0FE44AC10078D92A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D327E0FE43E3E0078D92A /* Person.m */; };
-		8F5D329C0FE44AC20078D92A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D327E0FE43E3E0078D92A /* Person.m */; };
-		8F5D329E0FE44AD60078D92A /* ActiveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317B0FE42BF40078D92A /* ActiveObject.m */; };
-		8F5D329F0FE44ADF0078D92A /* IntrospectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */; };
-		8F5D32A00FE44AE40078D92A /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317F0FE42BF40078D92A /* SqliteHelper.m */; };
+		F7B3AC780FEAF8B400171A94 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D327E0FE43E3E0078D92A /* Person.m */; };
+		F7B3AC790FEAF8C100171A94 /* ActiveObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D32810FE43E820078D92A /* ActiveObjectTest.m */; };
+		F7B3AC7B0FEAF8ED00171A94 /* ActiveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317B0FE42BF40078D92A /* ActiveObject.m */; };
+		F7B3AC7C0FEAF8F900171A94 /* IntrospectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */; };
+		F7B3AC7D0FEAF90000171A94 /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317F0FE42BF40078D92A /* SqliteHelper.m */; };
+		F7B3AC7F0FEAF91300171A94 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31E60FE432910078D92A /* SenTestingKit.framework */; };
+		F7B3AC800FEAF91700171A94 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31750FE42B9B0078D92A /* libsqlite3.0.dylib */; };
+		F7B3AC810FEAF91B00171A94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D31710FE42AE70078D92A /* Foundation.framework */; };
 		F7D33F8D0FE9F42900F315AC /* ActiveObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D33F8C0FE9F42900F315AC /* ActiveObjectTestCase.m */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +41,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F7D33F700FE9F11A00F315AC /* Test Suite */;
+			remoteGlobalIDString = F7D33F700FE9F11A00F315AC;
 			remoteInfo = "Test Suite";
 		};
 /* End PBXContainerItemProxy section */
@@ -79,7 +78,6 @@
 			files = (
 				8F5D31720FE42AE70078D92A /* Foundation.framework in Frameworks */,
 				8F5D31760FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */,
-				8F5D31E70FE432910078D92A /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +87,6 @@
 			files = (
 				8F5D31730FE42AE70078D92A /* Foundation.framework in Frameworks */,
 				8F5D31770FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */,
-				8F5D31E80FE432910078D92A /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B3AC7F0FEAF91300171A94 /* SenTestingKit.framework in Frameworks */,
+				F7B3AC800FEAF91700171A94 /* libsqlite3.0.dylib in Frameworks */,
+				F7B3AC810FEAF91B00171A94 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,11 +308,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				8F5D32990FE44AAA0078D92A /* ActiveObjectTest.m in Sources */,
-				8F5D329C0FE44AC20078D92A /* Person.m in Sources */,
-				8F5D329E0FE44AD60078D92A /* ActiveObject.m in Sources */,
-				8F5D329F0FE44ADF0078D92A /* IntrospectHelper.m in Sources */,
-				8F5D32A00FE44AE40078D92A /* SqliteHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +318,6 @@
 				8F5D31840FE42BF40078D92A /* ActiveObject.m in Sources */,
 				8F5D31860FE42BF40078D92A /* IntrospectHelper.m in Sources */,
 				8F5D31880FE42BF40078D92A /* SqliteHelper.m in Sources */,
-				8F5D32980FE44AA90078D92A /* ActiveObjectTest.m in Sources */,
-				8F5D329B0FE44AC10078D92A /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +326,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D33F8D0FE9F42900F315AC /* ActiveObjectTestCase.m in Sources */,
+				F7B3AC780FEAF8B400171A94 /* Person.m in Sources */,
+				F7B3AC790FEAF8C100171A94 /* ActiveObjectTest.m in Sources */,
+				F7B3AC7B0FEAF8ED00171A94 /* ActiveObject.m in Sources */,
+				F7B3AC7C0FEAF8F900171A94 /* IntrospectHelper.m in Sources */,
+				F7B3AC7D0FEAF90000171A94 /* SqliteHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +450,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -480,7 +481,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
