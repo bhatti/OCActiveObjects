@@ -27,6 +27,7 @@
 		8F5D329E0FE44AD60078D92A /* ActiveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317B0FE42BF40078D92A /* ActiveObject.m */; };
 		8F5D329F0FE44ADF0078D92A /* IntrospectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317D0FE42BF40078D92A /* IntrospectHelper.m */; };
 		8F5D32A00FE44AE40078D92A /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5D317F0FE42BF40078D92A /* SqliteHelper.m */; };
+		F7D33F8D0FE9F42900F315AC /* ActiveObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D33F8C0FE9F42900F315AC /* ActiveObjectTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,10 @@
 		8F5D327E0FE43E3E0078D92A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Tests/Person.m; sourceTree = "<group>"; };
 		8F5D32800FE43E820078D92A /* ActiveObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveObjectTest.h; sourceTree = "<group>"; };
 		8F5D32810FE43E820078D92A /* ActiveObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveObjectTest.m; sourceTree = "<group>"; };
+		F7D33F710FE9F11A00F315AC /* Test Suite.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Suite.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7D33F720FE9F11A00F315AC /* Test Suite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test Suite-Info.plist"; sourceTree = "<group>"; };
+		F7D33F8B0FE9F42900F315AC /* ActiveObjectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveObjectTestCase.h; sourceTree = "<group>"; };
+		F7D33F8C0FE9F42900F315AC /* ActiveObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveObjectTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,13 @@
 				8F5D31730FE42AE70078D92A /* Foundation.framework in Frameworks */,
 				8F5D31770FE42B9B0078D92A /* libsqlite3.0.dylib in Frameworks */,
 				8F5D31E80FE432910078D92A /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D33F6E0FE9F11A00F315AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +114,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* OCActiveObjects.app */,
 				8F5D315E0FE428820078D92A /* libOCActiveObjectsSim.a */,
+				F7D33F710FE9F11A00F315AC /* Test Suite.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +128,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				F7D33F720FE9F11A00F315AC /* Test Suite-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -153,6 +167,8 @@
 				8F5D327E0FE43E3E0078D92A /* Person.m */,
 				8F5D32800FE43E820078D92A /* ActiveObjectTest.h */,
 				8F5D32810FE43E820078D92A /* ActiveObjectTest.m */,
+				F7D33F8B0FE9F42900F315AC /* ActiveObjectTestCase.h */,
+				F7D33F8C0FE9F42900F315AC /* ActiveObjectTestCase.m */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -208,6 +224,24 @@
 			productReference = 8F5D315E0FE428820078D92A /* libOCActiveObjectsSim.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		F7D33F700FE9F11A00F315AC /* Test Suite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7D33F750FE9F11B00F315AC /* Build configuration list for PBXNativeTarget "Test Suite" */;
+			buildPhases = (
+				F7D33F6C0FE9F11A00F315AC /* Resources */,
+				F7D33F6D0FE9F11A00F315AC /* Sources */,
+				F7D33F6E0FE9F11A00F315AC /* Frameworks */,
+				F7D33F6F0FE9F11A00F315AC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Test Suite";
+			productName = "Test Suite";
+			productReference = F7D33F710FE9F11A00F315AC /* Test Suite.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,6 +256,7 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* OCActiveObjects */,
 				8F5D315D0FE428820078D92A /* OCActiveObjectsSim */,
+				F7D33F700FE9F11A00F315AC /* Test Suite */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +269,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7D33F6C0FE9F11A00F315AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F7D33F6F0FE9F11A00F315AC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -259,6 +317,14 @@
 				8F5D31880FE42BF40078D92A /* SqliteHelper.m in Sources */,
 				8F5D32980FE44AA90078D92A /* ActiveObjectTest.m in Sources */,
 				8F5D329B0FE44AC10078D92A /* Person.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D33F6D0FE9F11A00F315AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D33F8D0FE9F42900F315AC /* ActiveObjectTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +434,60 @@
 			};
 			name = Release;
 		};
+		F7D33F730FE9F11B00F315AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "Test Suite-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Test Suite";
+				SDKROOT = iphonesimulator3.0;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F7D33F740FE9F11B00F315AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Test Suite-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Test Suite";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -394,6 +514,15 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7D33F750FE9F11B00F315AC /* Build configuration list for PBXNativeTarget "Test Suite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7D33F730FE9F11B00F315AC /* Debug */,
+				F7D33F740FE9F11B00F315AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
