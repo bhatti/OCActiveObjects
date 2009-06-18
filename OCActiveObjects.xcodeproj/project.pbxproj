@@ -38,6 +38,13 @@
 			remoteGlobalIDString = 8F5D315D0FE428820078D92A;
 			remoteInfo = OCActiveObjectsSim;
 		};
+		F7D33FAD0FE9F70000F315AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7D33F700FE9F11A00F315AC /* Test Suite */;
+			remoteInfo = "Test Suite";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -201,6 +208,7 @@
 			);
 			dependencies = (
 				8F5D31A00FE42C850078D92A /* PBXTargetDependency */,
+				F7D33FAE0FE9F70000F315AC /* PBXTargetDependency */,
 			);
 			name = OCActiveObjects;
 			productName = OCActiveObjects;
@@ -335,6 +343,11 @@
 			isa = PBXTargetDependency;
 			target = 8F5D315D0FE428820078D92A /* OCActiveObjectsSim */;
 			targetProxy = 8F5D319F0FE42C850078D92A /* PBXContainerItemProxy */;
+		};
+		F7D33FAE0FE9F70000F315AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7D33F700FE9F11A00F315AC /* Test Suite */;
+			targetProxy = F7D33FAD0FE9F70000F315AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
