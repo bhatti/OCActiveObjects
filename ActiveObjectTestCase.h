@@ -18,7 +18,7 @@
 - (void)setup;
 - (void)teardown;
 - (Person *)newPerson;
-- (void)comparePerson:(Person *)person1 withPerson:(Person *)person2;
+- (void)assertPerson:(Person *)person1 equalsToPerson:(Person *)person2;
 - (void)testSaveAndFind;
 - (void)testCount;
 - (void)testRemove;

@@ -36,46 +36,23 @@
 	return person;
 }
 
-- (void)comparePerson:(Person *)person1 withPerson:(Person *)person2 {
-	if (person1.age != person2.age) {
-		NSLog(@"unexpected age %d", person2.age);
-	}
-	
-	if ([person1.birthdate timeIntervalSince1970] != [person2.birthdate timeIntervalSince1970]) {
-		NSLog(@"unexpected birthdate %@  --- %d / %d", person1.birthdate, [person1.birthdate timeIntervalSince1970], [person2.birthdate timeIntervalSince1970]);
-	}
-	
-	if (person1.rank != person2.rank) {
-		NSLog(@"unexpected age %d", person2.rank);
-	}
-	if (person1.votes != person2.votes) {
-		NSLog(@"unexpected votes %d", person2.votes);
-	}
-	if (person1.sex != person2.sex) {
-		NSLog(@"unexpected sex %c", person2.sex);
-	}
-	if (![person1.name isEqualToString: person2.name]) {
-		NSLog(@"unexpected name %@", person2.name);
-	}
-	if (person1.income != person2.income) {
-		NSLog(@"unexpected votes %f", person2.income);
-	}
-	if (person1.active != person2.active) {
-		NSLog(@"unexpected active %d", person2.active);
-	}
-	if (person1.flags != person2.flags) {
-		NSLog(@"unexpected flags %f", person2.flags);
-	}
-	if ([person1.rating intValue] != [person2.rating intValue]) {
-		NSLog(@"unexpected rating %@", person2.rating);
-	}
+- (void)assertPerson:(Person *)person1 equalsToPerson:(Person *)person2 {
+	STAssertEquals(person1.age, person2.age, @"age didn't match");	
+	STAssertEquals([person1.birthdate timeIntervalSince1970], [person2.birthdate timeIntervalSince1970], @"birthdate didn't match");
+	STAssertEquals(person1.rank, person2.rank, @"rank didn't match");	
+	STAssertEquals(person1.votes, person2.votes, @"votes didn't match");	
+	STAssertEquals(person1.sex, person2.sex, @"sex didn't match");	
+	STAssertEqualObjects(person1.name, person2.name, @"name didn't match");	
+	STAssertEquals(person1.income, person2.income, @"income didn't match");	
+	STAssertEquals(person1.active, person2.active, @"active didn't match");	
+	STAssertEquals(person1.flags, person2.flags, @"flags didn't match");	
+	STAssertEqualObjects(person1.rating, person2.rating, @"rating didn't match");
 }
 
 
 - (void)testSaveAndFind {
-	/*
 	[Person removeAll];
-	
+/*	
 	Person *person1 = [self newPerson];
 	[person1 save];
 	
