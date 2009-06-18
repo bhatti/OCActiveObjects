@@ -15,7 +15,6 @@
 
 + (NSString *) getDatabaseFilePath:(NSString *)dbName;
 
-
 + (void) bindVariables:(sqlite3_stmt *)stmt withNames:(NSArray *)names withTypes:(NSDictionary *)propertyNamesAndTypes withObject:(NSObject *)object;
 
 + (void) bindVariables:(sqlite3_stmt *)stmt withNames:(NSArray *)names withTypes:(NSDictionary *)propertyNamesAndTypes withValues:(NSDictionary *)values;
