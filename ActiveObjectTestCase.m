@@ -4,6 +4,13 @@
 //
 //  Created by Bhatti, Shahzad on 6/17/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
+// 
+// #export DYLD_INSERT_LIBRARIES=DevToolsBundleInjection.framework/DevToolsBundleInjection
+// export DYLD_INSERT_LIBRARIES=$(DEVELOPER_LIBRARY_DIR)/PrivateFrameworks
+// #export DYLD_INSERT_LIBRARIES=${DEVELOPER_LIBRARY_DIR}/PrivateFrameworks/DevToolsBundleInjection.framework/DevToolsBundleInjection
+// export XCInjectBundle="$(BUILT_PRODUCTS_DIR)/Test Suite.octest"
+// export XCInjectBundleInto=$(BUILT_PRODUCTS_DIR)/OCActiveObjects.app/Contents/MacOS/OCActiveObjects
+// export DYLD_FALLBACK_FRAMEWORK_PATH=$(DEVELOPER_LIBRARY_DIR)/Frameworks
 //
 
 #import "ActiveObjectTestCase.h"
@@ -50,11 +57,11 @@
 }
 
 
-- (void)testSaveAndFind {
+- (void)testSaveAndFind {	
 	//[Person removeAll];
 
 	Person *person1 = [self newPerson];
-	[person1 save];
+	//[person1 save];
 /*	
 	Person *person2 = (Person *) [Person findByPrimaryKey:person1.objectId];
 	[self comparePerson:person1 withPerson:person2];
