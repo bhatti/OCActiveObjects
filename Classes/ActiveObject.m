@@ -220,7 +220,7 @@ static sqlite3_stmt *updateStmt = NULL;
 				NSDate *date = [NSDate dateWithTimeIntervalSince1970:value];
 				[object setValue:date forKey:key];
 			} else {
-				[NSException raise:@"Invalid type for " format:@"%@ - %@", key, type];
+				NSLog(@"Skipping Invalid type for %@ - %@", key, type);
 			}
 		} /* for all keys */
 		[matched addObject:object];
@@ -370,7 +370,7 @@ static sqlite3_stmt *updateStmt = NULL;
 			} else if ([IntrospectHelper isDateType:type]) {
 				[sql appendFormat: @"%@ FLOAT", fieldName];
 			} else {
-				[NSException raise:@"Invalid type for " format:@"%@ - %@, available types %@, %@, %@", fieldName, type, kSTRING_TYPE, kCSTRING_TYPE, kNUMBER_TYPE];
+				NSLog(@"Skipping Invalid type for %@ - %@, available types %@, %@, %@", fieldName, type, kSTRING_TYPE, kCSTRING_TYPE, kNUMBER_TYPE);
 			}
 		}
 		[sql appendString:@");"];

@@ -61,7 +61,7 @@
 	//[Person removeAll];
 
 	Person *person1 = [self newPerson];
-	//[person1 save];
+	[person1 save];
 /*	
 	Person *person2 = (Person *) [Person findByPrimaryKey:person1.objectId];
 	[self comparePerson:person1 withPerson:person2];

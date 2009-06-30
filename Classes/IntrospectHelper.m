@@ -54,7 +54,18 @@ static const char* getPropertyType(objc_property_t property) {
 			const char *propType = getPropertyType(property);
 			NSString *propertyName = [NSString stringWithUTF8String:propName];
 			NSString *propertyType = [NSString stringWithUTF8String:propType];
-			[propertyNamesAndTypes setObject:propertyType forKey:propertyName];
+
+			if ([self isCIntegerType:propertyType] || [self isBooleanType:propertyType] || [self isCharType:propertyType]) {
+			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
+			} else if ([self isNumberType:propertyType] || [self isDoubleType:propertyType]) {
+			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
+			} else if ([self isStringType:propertyType] || [self isCStringType:propertyType]) {
+			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
+			} else if ([self isDateType:propertyType]) {
+			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
+			} else {
+				NSLog(@"Skipping Invalid type for %@ - %@", propertyName, propertyType);
+			}
 		}
 	}
 	free(properties);
