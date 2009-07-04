@@ -11,11 +11,31 @@
 #import "SqliteHelper.h"
 
 
+
+BOOL isPrimitive(NSString *propertyType) {	
+	return ([IntrospectHelper isCIntegerType:propertyType] || [IntrospectHelper isBooleanType:propertyType] || [IntrospectHelper isCharType:propertyType] ||
+			[IntrospectHelper isNumberType:propertyType] || [IntrospectHelper isDoubleType:propertyType] ||
+			[IntrospectHelper isStringType:propertyType] || [IntrospectHelper isCStringType:propertyType] ||
+			[IntrospectHelper isDateType:propertyType]);
+}
+
+BOOL isActiveObject(NSString *propertyType) {
+	if (isPrimitive(propertyType)) return NO;
+	Class klass = [NSKeyedUnarchiver classForClassName:propertyType];
+	return (klass != nil && [klass conformsToProtocol:@protocol(ActiveObjectProtocol)]);
+}
+			
+
+
 @implementation ActiveObject
 @synthesize objectId;
 static sqlite3 *database = NULL;
 static sqlite3_stmt *insertStmt = NULL;
 static sqlite3_stmt *updateStmt = NULL;
+
+static TYPE_PREDICATE_FUNC IS_PRIMITIVE = &isPrimitive;
+static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
+
 
 
 - (BOOL)isEqual:(id)other {
@@ -42,11 +62,19 @@ static sqlite3_stmt *updateStmt = NULL;
 
 
 - (void) save {
+	NSDictionary *belongsToProperties = [[self class]_getBelongsToPropertyNamesAndTypes];
+	for (id name in belongsToProperties) {
+		id value = [self valueForKey:name];
+		[self setValue:value forKey:name];
+		NSLog(@"################ Saving key: %@, value: %@", name, value);
+	}
+
 	if (self.objectId == nil) {
 		[self _insert];
 	} else {
 		[self _update];
 	}
+
 }
 
 - (void) _insert {
@@ -108,6 +136,11 @@ static sqlite3_stmt *updateStmt = NULL;
  * Class-level methods
  */
 
++ (NSString *)className {
+	return NSStringFromClass(self);
+}
+
+
 
 + (NSString	*) getTableName {
 	[NSException raise:@"override getTableName for your model" format:@"", @""];
@@ -127,6 +160,7 @@ static sqlite3_stmt *updateStmt = NULL;
 		[self closeDatabase];
 	} else {
 		[self _createTable];
+		[self _addNewColumns];
 	}
 }
 
@@ -323,7 +357,6 @@ static sqlite3_stmt *updateStmt = NULL;
 			[propertyNamesAndTypes addObject:fieldName];
 		}
 	}
-	
 	return propertyNamesAndTypes;
 }
 
@@ -332,10 +365,16 @@ static sqlite3_stmt *updateStmt = NULL;
 + (NSDictionary *) _getPropertyNamesAndTypes {
 	static NSDictionary *propertyNamesAndTypes = nil;		/* mapping of all property names to their types */
 	if (propertyNamesAndTypes == nil) {
-		propertyNamesAndTypes = [IntrospectHelper getPropertyNamesAndTypesForClassAndSuperClasses:[self class]];
+		propertyNamesAndTypes = [IntrospectHelper getPropertyNamesAndTypesForClassAndSuperClasses:[self class] withPredicate:IS_PRIMITIVE];
 	}
-	if ([propertyNamesAndTypes count] == 0) {
-		[NSException raise:@"No properties are defined for your domain class" format:@""];
+	return propertyNamesAndTypes;
+}
+
+
++ (NSDictionary *) _getBelongsToPropertyNamesAndTypes {
+	static NSDictionary *propertyNamesAndTypes = nil;		/* mapping of all property names to their types */
+	if (propertyNamesAndTypes == nil) {
+		propertyNamesAndTypes = [IntrospectHelper getPropertyNamesAndTypesForClassAndSuperClasses:[self class] withPredicate:IS_ACTIVE_OBJECT];
 	}
 	return propertyNamesAndTypes;
 }
@@ -374,13 +413,51 @@ static sqlite3_stmt *updateStmt = NULL;
 			}
 		}
 		[sql appendString:@");"];
-		char *errorMsg;
-		if (sqlite3_exec (database, [sql UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
-			[NSException raise:@"Create failed with " format:@"%s", errorMsg];
-		}
+		
+		//char *errorMsg;
+		//if (sqlite3_exec (database, [sql UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
+		//	[NSException raise:@"Create failed with " format:@"%s", errorMsg];
+		//}
 	}
 	return sql;
 }
+
+
+
+
++ (NSArray *) _getAddColumnsSQL {
+	static NSMutableArray *alters = nil;
+
+	if (alters == nil) {
+		alters = [[NSMutableArray alloc] init];
+		NSDictionary *propertyNamesAndTypes = [self _getPropertyNamesAndTypes];
+		if ([propertyNamesAndTypes count] == 0) {
+			[NSException raise:@"No properties defined" format:@""];
+		}
+		NSArray *keys = [self _getPropertyNamesWithoutObjectId];
+		for (int i=0; i<[keys count]; i++) {
+			NSString *fieldName = [keys objectAtIndex:i];
+			NSString *type = [[self _getPropertyNamesAndTypes] objectForKey:fieldName];
+			NSString *alter = nil;
+			if ([IntrospectHelper isCIntegerType:type] || [IntrospectHelper isBooleanType:type] || [IntrospectHelper isCharType:type]) {
+				alter = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ INTEGER", [self getTableName], fieldName];
+			} else if ([IntrospectHelper isNumberType:type] || [IntrospectHelper isDoubleType:type]) {
+				alter = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ FLOAT", [self getTableName], fieldName];
+			} else if ([IntrospectHelper isStringType:type] || [IntrospectHelper isCStringType:type]) {
+				alter = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ FLOAT", [self getTableName], fieldName];
+			} else if ([IntrospectHelper isDateType:type]) {
+				alter = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ FLOAT", [self getTableName], fieldName];
+			} else {
+				NSLog(@"Skipping Invalid type for %@ - %@, available types %@, %@, %@", fieldName, type, kSTRING_TYPE, kCSTRING_TYPE, kNUMBER_TYPE);
+			}
+			if (alter != nil) {
+				[alters addObject:alter];
+			}
+		}
+	}
+	return alters;
+}
+
 
 
 + (NSString *) _toWhere:(NSArray *)names {
@@ -400,16 +477,13 @@ static sqlite3_stmt *updateStmt = NULL;
 
 
 + (NSMutableString *) _getFieldNamesAsStringWithObjectId:(BOOL) useObjectId {
-	static NSMutableString *sql = nil;
-	if (sql == nil) {
-		sql = [NSMutableString stringWithCapacity: 128];
-	    NSArray *keys = useObjectId ? [self _getPropertyNames] : [self _getPropertyNamesWithoutObjectId];
-	    for (int i=0; i<[keys count]; i++) {
-			if (i > 0) {
-				[sql appendString:@", "];
-			}
-			[sql appendFormat: @"%@", [keys objectAtIndex:i]];
-	    }
+	NSMutableString *sql = [NSMutableString stringWithCapacity: 128];
+	NSArray *keys = useObjectId ? [self _getPropertyNames] : [self _getPropertyNamesWithoutObjectId];
+	for (int i=0; i<[keys count]; i++) {
+		if (i > 0) {
+			[sql appendString:@", "];
+		}
+		[sql appendFormat: @"%@", [keys objectAtIndex:i]];
 	}
 	return sql;
 }
@@ -475,6 +549,25 @@ static sqlite3_stmt *updateStmt = NULL;
 		return;
 	}
 	created = YES;
+}
+
++ (void) _addNewColumns {
+	static BOOL altered = NO;
+	if (altered) return;
+	
+	char * errorMsg;
+	NSArray *alters = [self _getAddColumnsSQL];
+	NSLog(@"Adding columns with %@\n\n", alters);
+	for (int i=0; i<[alters count]; i++) {
+		@try {
+			if (sqlite3_exec (database, [[alters objectAtIndex:i] UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
+				NSLog(@"Failed to alter with %@ for table %@ due to %s", [alters objectAtIndex:i], [self getTableName], errorMsg);
+			}
+		} @catch (id theException) {
+			NSLog(@"Failed to alter %@", theException);
+		}
+	}
+	altered	= YES;
 }
 
 

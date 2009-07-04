@@ -34,17 +34,17 @@ static const char* getPropertyType(objc_property_t property) {
 
 @implementation IntrospectHelper
 
-+ (NSDictionary *) getPropertyNamesAndTypesForClassAndSuperClasses:(Class)klass {
++ (NSDictionary *) getPropertyNamesAndTypesForClassAndSuperClasses:(Class)klass withPredicate:(TYPE_PREDICATE_FUNC) predicate {
 	NSMutableDictionary *propertyNamesAndTypes = [[[NSMutableDictionary alloc] init] autorelease];
 	while (klass != [NSObject class]) {
-		[self loadPropertyNamesAndTypesForClass:klass intoProperties:propertyNamesAndTypes];
+		[self loadPropertyNamesAndTypesForClass:klass withPredicate:predicate intoProperties:propertyNamesAndTypes];
 		klass = [klass superclass];
 	}
 	return propertyNamesAndTypes;
 }
 
 
-+ (void) loadPropertyNamesAndTypesForClass:(Class)klass intoProperties:(NSMutableDictionary *) propertyNamesAndTypes {
++ (void) loadPropertyNamesAndTypesForClass:(Class)klass withPredicate:(TYPE_PREDICATE_FUNC)predicate intoProperties:(NSMutableDictionary *) propertyNamesAndTypes {
 	unsigned int outCount;
 	objc_property_t *properties = class_copyPropertyList(klass, &outCount);
 	for(int i = 0; i < outCount; i++) {
@@ -54,17 +54,8 @@ static const char* getPropertyType(objc_property_t property) {
 			const char *propType = getPropertyType(property);
 			NSString *propertyName = [NSString stringWithUTF8String:propName];
 			NSString *propertyType = [NSString stringWithUTF8String:propType];
-
-			if ([self isCIntegerType:propertyType] || [self isBooleanType:propertyType] || [self isCharType:propertyType]) {
-			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
-			} else if ([self isNumberType:propertyType] || [self isDoubleType:propertyType]) {
-			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
-			} else if ([self isStringType:propertyType] || [self isCStringType:propertyType]) {
-			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
-			} else if ([self isDateType:propertyType]) {
-			    [propertyNamesAndTypes setObject:propertyType forKey:propertyName];
-			} else {
-				NSLog(@"Skipping Invalid type for %@ - %@", propertyName, propertyType);
+			if (predicate(propertyType)) {
+				[propertyNamesAndTypes setObject:propertyType forKey:propertyName];
 			}
 		}
 	}

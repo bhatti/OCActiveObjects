@@ -27,15 +27,16 @@
 #define kUSHORT_TYPE            @"S"
 #define kCHAR_TYPE              @"c"
 
+typedef BOOL (*TYPE_PREDICATE_FUNC)(NSString *);
 
 
 @interface IntrospectHelper : NSObject {
 
 }
 
-+ (NSDictionary *) getPropertyNamesAndTypesForClassAndSuperClasses:(Class)klass;
++ (NSDictionary *) getPropertyNamesAndTypesForClassAndSuperClasses:(Class)klass withPredicate:(TYPE_PREDICATE_FUNC) predicate;
 
-+ (void) loadPropertyNamesAndTypesForClass:(Class)klass intoProperties:(NSMutableDictionary *) propertyNamesAndTypes;
++ (void) loadPropertyNamesAndTypesForClass:(Class)klass withPredicate:(TYPE_PREDICATE_FUNC)predicate intoProperties:(NSMutableDictionary *) propertyNamesAndTypes;
 
 
 + (BOOL) isNumberType:(NSString *) type;

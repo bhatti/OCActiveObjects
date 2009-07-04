@@ -8,9 +8,46 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ActiveObject : NSObject {
-	NSNumber *objectId;                                     /* unique database id */
 
+@protocol ActiveObjectProtocol
+- (void) save;
+@end
+
+
+#define DECL_BELONGS(TYPE, NAME) \
+TYPE *NAME; \
+NSNumber *NAME ## Id;
+
+#define DECL_PROTO_BELONGS(TYPE, NAME, SETTER) \
+-(TYPE*)NAME;	\
+-(void)SETTER:(TYPE *) the ## NAME; \
+-(NSNumber *)NAME ## Id; \
+-(void)SETTER ## Id:(NSNumber *)the ## NAME ## Id; \
+@property (nonatomic, retain) NSNumber *NAME ## Id;
+
+
+#define DEFINE_BELONGS(TYPE, NAME, SETTER) \
+-(TYPE*)NAME {	\
+return (TYPE *) [TYPE findByPrimaryKey:[self NAME ## Id]]; \
+} \
+-(void)SETTER:(TYPE *) the ## NAME { \
+[the ## NAME save]; \
+[self SETTER ## Id:the ## NAME.objectId]; \
+} \
+-(NSNumber *)NAME ## Id { \
+return NAME ## Id; \
+} \
+-(void)SETTER ## Id:(NSNumber *)the ## NAME ## Id{ \
+if (NAME ## Id != the ## NAME ## Id) { \
+[NAME ## Id release]; \
+NAME ## Id = [the ## NAME ## Id retain]; \
+} \
+} 
+
+
+
+@interface ActiveObject : NSObject<ActiveObjectProtocol> {
+	NSNumber *objectId;                                     /* unique database id */
 }
 
 @property (nonatomic, retain) NSNumber *objectId;
@@ -52,6 +89,9 @@
 
 + (NSDictionary *) _getPropertyNamesAndTypes;
 
++ (NSDictionary *) _getBelongsToPropertyNamesAndTypes;
+
+
 + (NSArray *) _getPropertyNames;
 
 + (NSArray *) _getPropertyNamesWithoutObjectId;
@@ -60,6 +100,8 @@
 
 + (NSString *) _getCreateSQL;
 
++ (NSArray *) _getAddColumnsSQL;
+
 + (NSMutableString *) _getInsertSQL;
 
 + (NSMutableString *) _getUpdateSQL;
@@ -67,6 +109,8 @@
 + (NSMutableString *) _getSelectSQL;
 
 + (void) _createTable;
+
++ (void) _addNewColumns;
 
 + (NSString *) _toWhere:(NSArray *)names;
 
