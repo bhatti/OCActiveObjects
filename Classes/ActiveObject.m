@@ -61,14 +61,39 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 }
 
 
-- (void) save {
+- (NSString *)description {
+	NSMutableString *buffer = [NSMutableString stringWithCapacity: 256];
+	[buffer appendFormat: @"id=%@;", self.objectId];
+	
+	NSArray *keys = [[self class] _getPropertyNamesWithoutObjectId];
+	for (int i=0; i<[keys count]; i++) {
+		NSString *fieldName = [keys objectAtIndex:i];
+		id value = [self valueForKey:fieldName];
+		[buffer appendFormat: @"%@=%@;", fieldName, value];
+	}
 	NSDictionary *belongsToProperties = [[self class]_getBelongsToPropertyNamesAndTypes];
 	for (id name in belongsToProperties) {
 		id value = [self valueForKey:name];
-		[self setValue:value forKey:name];
-		NSLog(@"################ Saving key: %@, value: %@", name, value);
+		[buffer appendFormat: @"%@=%@;", name, value];
 	}
+	return buffer;
+}
 
+
+- (void) _saveBelongsTo {
+	NSDictionary *belongsToProperties = [[self class]_getBelongsToPropertyNamesAndTypes];
+	NSLog(@"################ _saveBelongsTo %@", belongsToProperties);
+	
+	for (id name in belongsToProperties) {
+		id value = [self valueForKey:name];
+		[self setValue:value forKey:name];
+		NSLog(@"################ _saveBelongsTo Saving key: %@, value: %@", name, value);
+	}
+}
+
+
+- (void) save {
+	[self _saveBelongsTo];
 	if (self.objectId == nil) {
 		[self _insert];
 	} else {
@@ -95,7 +120,7 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 		[NSException raise:@"Insert failed with " format:@"%s", errorMsg];
 	}
 	objectId = [NSNumber numberWithInt: sqlite3_last_insert_rowid(database)];
-	NSLog(@"Inserted with id %@ --  %@\n", self, sql);
+	//(@"Inserted with id %@ --  %@\n", self, sql);
 	
 	sqlite3_reset(insertStmt);
 }
@@ -120,7 +145,7 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 		const char *errorMsg = sqlite3_errmsg(database);
 		[NSException raise:@"Update failed with " format:@"%s", errorMsg];
 	}
-	NSLog(@"Updated with id %@ --  %@\n", self, sql);
+	//NSLog(@"Updated with id %@ --  %@\n", self, sql);
 	
 	sqlite3_reset(updateStmt);
 }
@@ -155,7 +180,7 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 
 + (void) openDatabase {
 	const char* dbPath = [[SqliteHelper getDatabaseFilePath:[self getTableName]] UTF8String];
-	NSLog(@"\n\n\nopening database %s\n\n\n", dbPath);
+	//NSLog(@"\n\n\nopening database %s\n\n\n", dbPath);
 	if(sqlite3_open(dbPath, &database) != SQLITE_OK) {
 		[self closeDatabase];
 	} else {
@@ -207,7 +232,6 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 		[sql appendString:[self _toWhere:[criteria allKeys]]];
 	}
 	
-	NSLog(@"Querying with sql %@ with criteria %d --- %@\n\n", sql, [criteria count], criteria);
 	
 	sqlite3_stmt *statement = NULL;
 	
@@ -261,6 +285,8 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 		[object release];
 	} /* for all rows */
 	sqlite3_finalize(statement);
+	//NSLog(@"Querying with sql %@ with criteria %d --- %@\n\n", sql, [criteria count], criteria);
+
 	return [matched autorelease];
 }
 
@@ -271,7 +297,7 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 	if ([criteria count] > 0) {
 		[sql appendString:[self _toWhere:[criteria allKeys]]];
 	}
-	NSLog(@"Deleting with sql %@ with criteria %@\n\n", sql, criteria);
+	//NSLog(@"Deleting with sql %@ with criteria %@\n\n", sql, criteria);
 	
 	sqlite3_stmt *statement = NULL;
 	
@@ -323,7 +349,7 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 	}
 	
 	
-	NSLog(@"Counting with sql %@ with criteria %@\n\n", sql, criteria);
+	//NSLog(@"Counting with sql %@ with criteria %@\n\n", sql, criteria);
 	if ([criteria count] > 0) {
 		[SqliteHelper bindVariables:statement withNames:[criteria allKeys] withTypes:[[self class] _getPropertyNamesAndTypes] withValues:criteria];
 	}
@@ -542,7 +568,7 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 	
 	char * errorMsg;
 	NSString *sql = [self _getCreateSQL];
-	NSLog(@"Creating table with %@\n\n", sql);
+	//NSLog(@"Creating table with %@\n\n", sql);
 	if (sqlite3_exec (database, [sql  UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
 		[self closeDatabase];
 		[NSException raise:@"Failed to create table with " format:@"%s for table %@ due to %@", sql, [self getTableName], errorMsg];
@@ -557,11 +583,11 @@ static TYPE_PREDICATE_FUNC IS_ACTIVE_OBJECT = &isActiveObject;
 	
 	char * errorMsg;
 	NSArray *alters = [self _getAddColumnsSQL];
-	NSLog(@"Adding columns with %@\n\n", alters);
+	//NSLog(@"Adding columns with %@\n\n", alters);
 	for (int i=0; i<[alters count]; i++) {
 		@try {
 			if (sqlite3_exec (database, [[alters objectAtIndex:i] UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
-				NSLog(@"Failed to alter with %@ for table %@ due to %s", [alters objectAtIndex:i], [self getTableName], errorMsg);
+				//NSLog(@"Failed to alter with %@ for table %@ due to %s", [alters objectAtIndex:i], [self getTableName], errorMsg);
 			}
 		} @catch (id theException) {
 			NSLog(@"Failed to alter %@", theException);

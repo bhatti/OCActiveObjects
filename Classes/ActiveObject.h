@@ -87,6 +87,8 @@ NAME ## Id = [the ## NAME ## Id retain]; \
 
 - (void) _update;
 
+- (void) _saveBelongsTo;
+
 + (NSDictionary *) _getPropertyNamesAndTypes;
 
 + (NSDictionary *) _getBelongsToPropertyNamesAndTypes;
